@@ -3,7 +3,7 @@
   $diameter: 50px;
   $radius: $diameter/2;
   $sense-size: $diameter;
-  $volume-size: $diameter/2;
+  $moon-size: $diameter;
   $border-width: 2px;
 
   width: 25%;
@@ -23,17 +23,17 @@
     }
   }
 
-  // use less to create a rule for each sense's volume
-  .volume {
-    background-color: lightgreen;
-    height: $volume-size;
-    width: $volume-size;
+  // use less to create a rule for each sense's moon
+  // TODO rename moon to moon
+  .moon {
+    background-color: skyblue;
     margin-left: 0;
     border: none;
     border-radius: $radius;
     position: absolute;
-    top: $sense-size/2 - $volume-size/2 - $border-width;
-    left: $sense-size/2 - $volume-size/2 - $border-width;
+    top: $sense-size/2 - $moon-size/2 - $border-width;
+    left: $sense-size/2 - $moon-size/2 - $border-width;
+    transition: height 1s linear, width 1s linear, top 1s linear, left 1s linear;
   }
 
   .magic {
@@ -56,11 +56,11 @@
 
   }
 
-  .touch {
+  .smell {
     border-radius: 0px $radius $radius $radius;
   }
 
-  .smell, .magic {
+  .touch, .magic {
     border-radius: $radius $radius $radius $radius;
   }
 
