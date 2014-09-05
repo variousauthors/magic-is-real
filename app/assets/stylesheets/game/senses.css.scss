@@ -3,8 +3,9 @@
   $diameter: 50px;
   $radius: $diameter/2;
   $sense-size: $diameter;
-  $moon-size: $diameter;
   $border-width: 2px;
+  $sqrt_2: 1.414213562; // ^o^//
+  $moon-size: $diameter*$sqrt_2;
 
   width: 25%;
   margin: 0 auto;
@@ -17,6 +18,7 @@
     margin-left: 10px;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
 
     &:first-child {
       margin-left: 0;
@@ -31,9 +33,11 @@
     border: none;
     border-radius: $radius;
     position: absolute;
-    top: $sense-size/2 - $moon-size/2 - $border-width;
-    left: $sense-size/2 - $moon-size/2 - $border-width;
+    top: $diameter/2 - $moon-size/2;
+    left: $diameter/2 - $moon-size/2;
     transition: height 1s linear, width 1s linear, top 1s linear, left 1s linear;
+    width: $moon-size;
+    height: $moon-size;
   }
 
   .magic {
