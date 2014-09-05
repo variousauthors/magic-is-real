@@ -1,0 +1,67 @@
+
+.senses {
+  $diameter: 50px;
+  $radius: $diameter/2;
+  $sense-size: $diameter;
+  $volume-size: $diameter/2;
+  $border-width: 2px;
+
+  width: 25%;
+  margin: 0 auto;
+
+  div {
+    width: $diameter;
+    height: $diameter;
+    border: $border-width solid darkgray;
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+    position: relative;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  // use less to create a rule for each sense's volume
+  .volume {
+    background-color: lightgreen;
+    height: $volume-size;
+    width: $volume-size;
+    margin-left: 0;
+    border: none;
+    border-radius: $radius;
+    position: absolute;
+    top: $sense-size/2 - $volume-size/2 - $border-width;
+    left: $sense-size/2 - $volume-size/2 - $border-width;
+  }
+
+  .magic {
+    position: absolute;
+    top: -$border-width;
+    left: -$border-width;
+  }
+
+  .sight {
+    border-radius: 0px 0px 0px 0px;
+  }
+
+  .hearing {
+    border-radius: 0px 0px 0px $radius;
+
+  }
+
+  .taste {
+    border-radius: 0px 0px $radius $radius;
+
+  }
+
+  .touch {
+    border-radius: 0px $radius $radius $radius;
+  }
+
+  .smell, .magic {
+    border-radius: $radius $radius $radius $radius;
+  }
+
+}
