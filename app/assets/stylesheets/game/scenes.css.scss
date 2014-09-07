@@ -1,0 +1,31 @@
+
+.scenes {
+  $stimulus-size: 50%;
+
+  position: relative;
+  width: 25%;
+  height: 75%;
+  margin: 0 auto;
+  padding-top: 25px;
+
+  div {
+    position: absolute;
+    width: $stimulus-size;
+    transition: opacity linear 1s;
+  }
+
+  .sight {
+  }
+
+  .hearing {
+  }
+
+  .smell {
+  }
+
+  .taste {
+  }
+
+  .magic {
+  }
+}
