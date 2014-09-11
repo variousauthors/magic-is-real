@@ -1,1 +1,1 @@
-@passage.senses.to_json
+@senses.to_json

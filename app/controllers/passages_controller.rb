@@ -2,6 +2,6 @@ class PassagesController < ApplicationController
   respond_to :html, :json
 
   def show
-    @passage = Passage.find(params[:id] || 1)
+    @senses = Passage.find(params[:id] || 1).senses
   end
 end
