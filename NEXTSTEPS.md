@@ -1,21 +1,45 @@
 NEXTSTEPS
 ---------
 
-[ ] passage
-    - has many stimuli (scoped to senses)
+Narrative:
 
-[ ] sense (should be six)
+- want the game to start with a sight focused sequence
+  where the other senses just provide noise
+  - lots of smells, and sounds, but no links there
+- after a few rooms, assume the player has turned off those
+  senses, and start to add optional side rooms
+- finally the narrative begins to require attention to
+  other senses
+
+a journey up a mountain
+running away from home
+sad child
+cold nights
+a plateaux, the remains of a log-fellow's hut
+distractions, subtle beauty
+echoes of footsteps that climbed here before
+passing the impassable ("damn your eyes")
+- a cold river, the smell of an old stone bridge
+- fallen rocks that block the road, the sound of fabric flapping
+mingi taw visible through the clouds
+
+
+[x] passage
+    - has many stimuli (scoped to senses)
+    - belongs to many links!
+
+[x] sense (should be six)
     - has many stimuli
 
-[ ] stimuli
+[x] stimuli
     - content: text/html
     - has many passages through links
     - has many stimuli through details
 
-[ ] link
+[x] link
     - key: string
 
-[ ] detail
+[x] detail
     - key: string
 
 Example:

@@ -7,6 +7,7 @@ gem 'unicorn'
 gem 'rack-canonical-host'
 gem 'rails', '~> 4.1.5'
 gem 'pg'
+gem 'pry-rails'
 
 gem 'slim-rails'
 gem 'sass-rails'
