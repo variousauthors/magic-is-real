@@ -24,8 +24,11 @@ room1.stimuli << sound.stimuli.create({ content: "You hear a tiger" })
 room1.stimuli << sound.stimuli.create({ content: "You hear a lion" })
 
 room1.stimuli << taste.stimuli.create({ content: "You taste boar" })
-room1.stimuli << taste.stimuli.create({ content: "You taste whale" })
 
+stimulus = taste.stimuli.create({ content: "You taste whale" })
+stimulus.add_link("whale", "room2")
+room1.stimuli << stimulus
+  
 # WIDTH A DETAIL
 room1.stimuli << touch.stimuli.create({ content: "You feel fur" })
 stimulus = touch.stimuli.create({ content: "You feel teeth" })
