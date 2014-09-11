@@ -1,5 +1,5 @@
 MagicIsReal::Application.routes.draw do
+  resource :passages, only: [:show]
 
-  root to: 'pages#root'
-
+  root to: 'passages#show'
 end
