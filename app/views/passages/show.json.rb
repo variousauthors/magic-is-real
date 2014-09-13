@@ -1,1 +1,0 @@
-@senses.to_json

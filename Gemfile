@@ -17,6 +17,7 @@ gem 'coffee-rails'
 gem 'turbolinks'
 gem 'simple_form', '~> 3.1.0.rc2'                      # Bootstrap 3 support
 gem 'uglifier'
+gem 'jbuilder'
 
 gem 'awesome_print'
 
