@@ -1,4 +1,6 @@
 class Stimulus < ActiveRecord::Base
+  include StimulusHelper
+
   belongs_to :passage
   belongs_to :sense
 
@@ -7,6 +9,7 @@ class Stimulus < ActiveRecord::Base
   has_many :links
   has_many :details
 
+  # ensure that the given key exists in the content
   def add_link(key, name)
     passage = Passage.where(name: name).first
 
@@ -18,4 +21,5 @@ class Stimulus < ActiveRecord::Base
 
     self.details << Detail.create({ key: key, stimulus: stimulus })
   end
+
 end
