@@ -3,8 +3,7 @@
 $(document).ready(function () {
     var moon_size = 50*Math.sqrt(2),
         min_moon = moon_size/4.0,
-        resizeMoon, fadeStimuli,
-        $scenes = $(".scenes");
+        resizeMoon, fadeStimuli;
 
     // TODO container_width could be a constant
     resizeMoon = function resizeMoon ($moon, $container) {
@@ -46,10 +45,4 @@ $(document).ready(function () {
         fadeStimuli($stimuli, diameter / $this.width());
     });
 
-    // scramble the stimuli
-    $(".stimulus").each(function (index, stimulus) {
-        var width = $scenes.width();
-
-        $(stimulus).css({ top: Math.random() * width, left: Math.random() * width - 50 });
-    });
 });
