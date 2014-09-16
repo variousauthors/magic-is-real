@@ -1,4 +1,19 @@
-var scramble, renderStimulus, renderSense, renderPassage, parseStimulus;
+var scramble, renderStimulus, renderSense, renderPassage, parseStimulus, renderLink;
+
+renderLink = function renderLink (i, link, tokens) {
+    var token = tokens[i],
+        index = token.indexOf(link.key), next;
+
+    // if we are dealing with a word that begins
+    // with the key word
+    if (index === 0) {
+        // and the next character is not alphabetical
+        next = token.charAt(index + token.length);
+        if (!isAlpha(next) || next === "") {
+            tokens[i] = "<a class='link' href='" + passages_url(link.passage_id) + "'>" + tokens[i] + "</a>";
+        }
+    }
+};
 
 parseStimulus = function parseStimulus (stimulus) {
     var link, token, i, j, index, next, tokens = stimulus.tokens;
@@ -11,18 +26,7 @@ parseStimulus = function parseStimulus (stimulus) {
         link = stimulus.links[i];
 
         for (j = 0; j < tokens.length; j++) {
-            token = tokens[j];
-            index = token.indexOf(link.key), next;
-
-            // if we are dealing with a word that begins
-            // with the key word
-            if (index === 0) {
-                // and the next character is not alphabetical
-                next = token.charAt(index + token.length);
-                if (!isAlpha(next) || next === "") {
-                    tokens[j] = "<a class='link' href='" + passages_url(link.passage_id) + "'>" + tokens[j] + "</a>";
-                }
-            }
+            renderLink(j, link, tokens);
         }
     }
 
@@ -37,9 +41,11 @@ scramble = function scramble (index, stimulus) {
 
 renderStimulus = function renderStimulus (index, stimulus) {
     var $stimulus = $("<div>").addClass("stimulus"),
-    html = parseStimulus(stimulus);
+        html = parseStimulus(stimulus),
+        $moon = $moons.parent("." + stimulus.sense).children(".moon");
 
     $stimulus.html(html);
+    $stimulus.css({ opacity: $moon.width() / moon_size });
     $scenes.find('.' + stimulus.sense).append($stimulus);
 };
 
