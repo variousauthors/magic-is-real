@@ -17,7 +17,8 @@ magic = Sense.create({ name: 'magic' })
 room1 = Passage.create({ name: 'room1' })
 room2 = Passage.create({ name: 'room2' })
 
-room1.stimuli << sight.stimuli.create({ content: "You see a duck" })
+# WITH PUNCTUATION
+room1.stimuli << sight.stimuli.create({ content: "You see... a duck" })
 room1.stimuli << sight.stimuli.create({ content: "You see a dog" })
 
 room1.stimuli << sound.stimuli.create({ content: "You hear a tiger" })
@@ -49,7 +50,8 @@ room1.save
 room2.stimuli << sight.stimuli.create({ content: "You see a box" })
 room2.stimuli << sight.stimuli.create({ content: "You see a cloud" })
 
-room2.stimuli << sound.stimuli.create({ content: "You hear a car" })
+# WITH PUNCTUATION
+room2.stimuli << sound.stimuli.create({ content: "You hear... a car" })
 room2.stimuli << sound.stimuli.create({ content: "You hear a whistle" })
 
 # WITH A DETAIL
@@ -58,10 +60,11 @@ stimulus = taste.stimuli.create({ content: "You taste crackers" })
 stimulus.add_detail("crackers", "THEY TASTE SO GURD")
 room2.stimuli << stimulus
 
-# WITH A LINK
+# WITH TWO LINKS
 room2.stimuli << touch.stimuli.create({ content: "You feel uncomfortable" })
 stimulus = touch.stimuli.create({ content: "You feel happy" })
 stimulus.add_link("happy", "room1")
+stimulus.add_link("you", "room1")
 room2.stimuli << stimulus
 
 room2.stimuli << smell.stimuli.create({ content: "You smell morning breath" })

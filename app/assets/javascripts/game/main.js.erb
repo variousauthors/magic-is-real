@@ -1,0 +1,49 @@
+var $stimuli, $scenes, $senses, isAlpha, passages_url, assert, url_helper;
+
+<% url = MagicIsReal::Application.routes.url_helpers %>
+
+passages_url = function passages_url (id) {
+  return "<%= url.passages_path({ trailing_slash: true }) %>" + id;
+};
+
+isAlpha = function isAlpha (str) {
+  var code, i = 0, len = str.length, valid = true;
+
+  while (valid && i < len) {
+    code = str.charCodeAt(i);
+    valid = (code > 64 && code < 91) || (code > 96 && code < 123);
+
+    i = i + 1;
+  }
+
+  return valid;
+};
+
+assert = function assert (condition, message) {
+    if (!condition) {
+        message = message || "Assertion failed";
+        if (typeof Error !== "undefined") {
+            throw new Error(message);
+        }
+        throw message; // Fallback
+    }
+};
+
+$(function () {
+    $stimuli = $(".stimulus");
+    $scenes = $(".scenes");
+    $senses = $(".senses");
+    $moons = $(".moon");
+
+    assert(isAlpha("A"));
+    assert(isAlpha("a"));
+    assert(isAlpha("Z"));
+    assert(isAlpha("z"));
+    assert(!isAlpha("0"));
+    assert(!isAlpha("1"));
+    assert(!isAlpha(","));
+    assert(!isAlpha(" "));
+
+    // scramble the stimuli
+    $stimuli.each(scramble);
+});

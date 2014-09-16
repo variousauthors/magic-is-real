@@ -3,11 +3,14 @@
   stimuli = sense.last
 
   json.set! sense.first do
-    stimuli.each do |stimulus|
+    json.array! stimuli do |stimulus|
+      # pre-splitting for recombination on the client
+      json.tokens stimulus.content.split(" ")
       json.content stimulus.content
+      json.sense sense.first
 
-      stimulus.links.each do |link|
-        json.link do
+      json.set! "links" do
+        json.array! stimulus.links do |link|
           json.key link.key
           json.passage_id link.passage_id
         end

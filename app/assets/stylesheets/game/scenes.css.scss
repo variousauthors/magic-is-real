@@ -8,7 +8,7 @@
   margin: 0 auto;
   padding-top: 25px;
 
-  div {
+  div.stimulus {
     position: absolute;
     width: $stimulus-size;
     transition: opacity linear 1s;

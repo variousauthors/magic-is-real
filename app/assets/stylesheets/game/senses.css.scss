@@ -35,9 +35,12 @@
     position: absolute;
     top: $diameter/2 - $moon-size/2;
     left: $diameter/2 - $moon-size/2;
-    transition: height 1s linear, width 1s linear, top 1s linear, left 1s linear;
     width: $moon-size;
     height: $moon-size;
+  }
+
+  .animoon {
+    transition: height 1s linear, width 1s linear, top 1s linear, left 1s linear;
   }
 
   .magic {
