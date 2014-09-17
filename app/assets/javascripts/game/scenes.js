@@ -16,7 +16,7 @@ $(function () {
 
         e.preventDefault();
 
-        // TODO if the relevant moon is full, then the link works
+        // if the relevant moon is full, then the link works
         $this = $(this);
 
         if ($this.parent().css("opacity") >= 1) {

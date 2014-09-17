@@ -50,7 +50,6 @@ renderStimulus = function renderStimulus (index, stimulus) {
 };
 
 renderSense = function renderSense (sense, stimuli, c, d) {
-    // TODO break this into a function
     $.each(stimuli, renderStimulus);
 };
 
