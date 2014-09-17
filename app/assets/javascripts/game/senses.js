@@ -37,9 +37,14 @@ fadeStimuli = function fadeStimuli ($sense, ratio) {
 
     $relevant_stimuli.each(function (index, element) {
         var $stimulus = $(element);
+        $stimulus.removeClass("translucent");
 
         if (ratio < 1) {
             $stimulus.find("a").removeClass("active");
+
+            if (ratio <= 0) {
+                $stimulus.addClass("translucent");
+            }
         } else {
             $stimulus.find("a").addClass("active");
         }

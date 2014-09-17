@@ -14,6 +14,11 @@
     width: $stimulus-size;
     transition: opacity linear 1s;
 
+    // full translucent text has no cursor over effect
+    .translucent {
+      cursor: default;
+    }
+
     // disguise links that are not active
     a:not(.active) {
       cursor: text;
