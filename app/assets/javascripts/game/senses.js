@@ -35,7 +35,6 @@ shrinkMoon = function shrinkMoon ($moon, $container) {
 fadeStimuli = function fadeStimuli ($sense, ratio) {
     var $relevant_stimuli = $sense.find(".stimulus").css({ opacity: ratio });
 
-    console.log(ratio);
     $relevant_stimuli.each(function (index, element) {
         var $stimulus = $(element);
 
