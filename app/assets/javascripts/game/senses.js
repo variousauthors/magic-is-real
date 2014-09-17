@@ -32,10 +32,19 @@ shrinkMoon = function shrinkMoon ($moon, $container) {
     return diameter;
 };
 
-fadeStimuli = function fadeStimuli ($stimuli, ratio) {
-    $stimuli.find(".stimulus").css({ opacity: ratio });
+fadeStimuli = function fadeStimuli ($sense, ratio) {
+    var $relevant_stimuli = $sense.find(".stimulus").css({ opacity: ratio });
 
-    // TODO if a stimulus is not 100 opaque, its links should not work. (how to do this)
+    console.log(ratio);
+    $relevant_stimuli.each(function (index, element) {
+        var $stimulus = $(element);
+
+        if (ratio < 1) {
+            $stimulus.find("a").removeClass("active");
+        } else {
+            $stimulus.find("a").addClass("active");
+        }
+    });
 };
 
 $(document).ready(function () {

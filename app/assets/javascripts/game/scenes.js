@@ -4,6 +4,9 @@ $(function () {
         var url;
 
         e.preventDefault();
+
+        // TODO if the relevant moon is full, then the link works
+
         url = $(this).attr("href");
 
         // fade out, ajax request, then scramble, then fade in

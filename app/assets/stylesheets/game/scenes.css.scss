@@ -1,6 +1,7 @@
 
 .scenes {
   $stimulus-size: 50%;
+  $link-color: #428bca;
 
   position: relative;
   width: 25%;
@@ -12,6 +13,16 @@
     position: absolute;
     width: $stimulus-size;
     transition: opacity linear 1s;
+
+    // disguise links that are not active
+    a:not(.active) {
+      cursor: text;
+
+      &:hover {
+        text-decoration: none;
+        color: $link-color;
+      }
+    }
   }
 
   .sight {
