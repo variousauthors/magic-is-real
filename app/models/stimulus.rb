@@ -9,6 +9,8 @@ class Stimulus < ActiveRecord::Base
   has_many :links
   has_many :details
 
+  accepts_nested_attributes_for :links
+
   # ensure that the given key exists in the content
   def add_link(key, name)
     passage = Passage.where(name: name).first
@@ -20,6 +22,11 @@ class Stimulus < ActiveRecord::Base
     stimulus = self.sense.stimuli.create({ content: content })
 
     self.details << Detail.create({ key: key, stimulus: stimulus })
+  end
+
+  def for_sense(name)
+    self.sense = Sense.where(name: name).first
+    self.save
   end
 
 end

@@ -1,6 +1,8 @@
 NEXTSTEPS
 ---------
 
+TODO: remove key from stimulus, or figure out why it is there
+
 Narrative:
 
 - want the game to start with a sight focused sequence

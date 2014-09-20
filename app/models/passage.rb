@@ -2,6 +2,8 @@ class Passage < ActiveRecord::Base
   has_many :stimuli
   has_many :links
 
+  accepts_nested_attributes_for :stimuli
+
   validates_uniqueness_of :name
 
   # by default links is showing incoming links, but we want to

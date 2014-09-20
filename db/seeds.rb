@@ -13,64 +13,38 @@ touch = Sense.create({ name: 'touch' })
 taste = Sense.create({ name: 'taste' })
 magic = Sense.create({ name: 'magic' })
 
-# must create all rooms first, for the links to work
-room1 = Passage.create({ name: 'room1' })
-room2 = Passage.create({ name: 'room2' })
+def init_from_yaml
+  File.open('db/seeds.yaml') do |yaml_file|
+    seeds = YAML::load(yaml_file)
+    passages = []
 
-# WITH PUNCTUATION
-room1.stimuli << sight.stimuli.create({ content: "You see... a duck" })
-room1.stimuli << sight.stimuli.create({ content: "You see a dog" })
+    seeds.each do |seed|
+      passage = Passage.create!({ name: seed["name"] })
 
-room1.stimuli << sound.stimuli.create({ content: "You hear a tiger" })
-room1.stimuli << sound.stimuli.create({ content: "You hear a lion" })
+      # later we will need to link the passages to the stimuli
+      passages[passage.id] = passage
+      seed["passage_id"] = passage.id
+    end
 
-room1.stimuli << taste.stimuli.create({ content: "You taste boar" })
+    # then update each passage from the seeds
+    seeds.each do |seed|
+      # recover the passage so that we don't query again (why?)
+      passage = passages[seed["passage_id"]]
+      seed.delete("passage_id")
 
-stimulus = taste.stimuli.create({ content: "You taste whale" })
-stimulus.add_link("whale", "room2")
-room1.stimuli << stimulus
-  
-# WIDTH A DETAIL
-room1.stimuli << touch.stimuli.create({ content: "You feel fur" })
-stimulus = touch.stimuli.create({ content: "You feel teeth" })
-stimulus.add_detail("teeth", "THEY FEEL SO GURD")
-room1.stimuli << stimulus
+      seed["stimuli_attributes"].each do |stimulus|
+        links = stimulus.delete("links")
+        sense = stimulus.delete("sense")
 
-# WIDTH A LINK
-room1.stimuli << smell.stimuli.create({ content: "You smell food" })
-stimulus = smell.stimuli.create({ content: "You smell fear" })
-stimulus.add_link("fear", "room2")
-room1.stimuli << stimulus
+        stimulus = passage.stimuli.create(stimulus)
+        stimulus.for_sense(sense)
 
-room1.stimuli << magic.stimuli.create({ content: "This is a seed file" })
-room1.stimuli << magic.stimuli.create({ content: "These are just seeds" })
+        links.to_a.each do |link|
+          stimulus.add_link(link["key"], link["passage"])
+        end
+      end
+    end
+  end
+end
 
-room1.save
-
-room2.stimuli << sight.stimuli.create({ content: "You see a box" })
-room2.stimuli << sight.stimuli.create({ content: "You see a cloud" })
-
-# WITH PUNCTUATION
-room2.stimuli << sound.stimuli.create({ content: "You hear... a car" })
-room2.stimuli << sound.stimuli.create({ content: "You hear a whistle" })
-
-# WITH A DETAIL
-room2.stimuli << taste.stimuli.create({ content: "You taste water" })
-stimulus = taste.stimuli.create({ content: "You taste crackers" })
-stimulus.add_detail("crackers", "THEY TASTE SO GURD")
-room2.stimuli << stimulus
-
-# WITH TWO LINKS
-room2.stimuli << touch.stimuli.create({ content: "You feel uncomfortable" })
-stimulus = touch.stimuli.create({ content: "You feel happy" })
-stimulus.add_link("happy", "room1")
-stimulus.add_link("you", "room1")
-room2.stimuli << stimulus
-
-room2.stimuli << smell.stimuli.create({ content: "You smell morning breath" })
-room2.stimuli << smell.stimuli.create({ content: "You smell rain" })
-
-room2.stimuli << magic.stimuli.create({ content: "Rails associations are fun" })
-room2.stimuli << magic.stimuli.create({ content: "I love to prorgam" })
-
-room2.save
+init_from_yaml

@@ -1,0 +1,22 @@
+- name: "Room 1"
+  stimuli_attributes:
+    - content: "A double rainbow hangs all the way across the sky."
+      sense: "sight"
+      links:
+        - key: "rainbow"
+          passage: "Room 1"
+        - key: "sky"
+          passage: "Room 2"
+    - content: "An alto sax and an electric guitar sing as one."
+      sense: "sound"
+    - content: "Yaml is an excellent format for expressing and transmitting data."
+      sense: "magic"
+- name: "Room 2"
+  stimuli_attributes:
+    - content: "Have you met Bob?"
+      sense: "magic"
+      links:
+        - key: "Bob"
+          passage: "Room 1"
+    - content: "Old friends high-five."
+      sense: "sound"
