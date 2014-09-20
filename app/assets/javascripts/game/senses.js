@@ -40,32 +40,34 @@ fadeStimuli = function fadeStimuli ($sense, ratio) {
         $stimulus.removeClass("translucent");
 
         if (ratio < 1) {
-            $stimulus.find("a").removeClass("active");
+            $stimulus.parent().removeClass("active");
 
             if (ratio <= 0) {
                 $stimulus.addClass("translucent");
             }
         } else {
-            $stimulus.find("a").addClass("active");
+            $stimulus.parent().addClass("active");
         }
     });
 };
 
 $(document).ready(function () {
+    var dimension;
 
-    // initial opacities for the stimuli
+    // initial moon dimensions
     $moons.removeClass("animoon");
-    setMoonSize($senses.find(".sight").children(".moon"), 46, 0.9);
-    setMoonSize($senses.find(".smell").children(".moon"), 46, 0.33);
-    setMoonSize($senses.find(".sound").children(".moon"), 46, 0.5);
-    setMoonSize($senses.find(".touch").children(".moon"), 46, 0.0);
-    setMoonSize($senses.find(".taste").children(".moon"), 46, 0.0);
-    setMoonSize($senses.find(".magic").children(".moon"), 46, 0.0);
+    dimension = 50 - 2*2;
+    setMoonSize($senses.find(".sight").children(".moon"), dimension, 1);
+    setMoonSize($senses.find(".smell").children(".moon"), dimension, 0.33);
+    setMoonSize($senses.find(".sound").children(".moon"), dimension, 0.5);
+    setMoonSize($senses.find(".touch").children(".moon"), dimension, 0.0);
+    setMoonSize($senses.find(".taste").children(".moon"), dimension, 0.0);
+    setMoonSize($senses.find(".magic").children(".moon"), dimension, 0.0);
 
     // initial opacities for the stimuli
     $stimuli.removeClass("stimulus");
     $stimuli.css({ opacity: 0 });
-    $scenes.find(".sight").children().css({ opacity: 0.9 });
+    $scenes.find(".sight").addClass("active").children().css({ opacity: 1 });
     $scenes.find(".smell").children().css({ opacity: 0.33 });
     $scenes.find(".sound").children().css({ opacity: 0.5 });
 

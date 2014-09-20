@@ -19,29 +19,45 @@
       cursor: default;
     }
 
-    // disguise links that are not active
-    a:not(.active) {
-      cursor: text;
+  }
 
-      &:hover {
-        text-decoration: none;
-        color: $link-color;
+  .sense {
+    // disguise links that are not active
+    &:not(.active) {
+      a {
+        cursor: text;
+
+        &:hover {
+          text-decoration: none;
+          color: $link-color;
+        }
+
+        &:focus {
+          outline: none;
+          text-decoration: none;
+          color: $link-color;
+        }
       }
     }
   }
 
   .sight {
+    @extend .sense;
   }
 
   .sound {
+    @extend .sense;
   }
 
   .smell {
+    @extend .sense;
   }
 
   .taste {
+    @extend .sense;
   }
 
   .magic {
+    @extend .sense;
   }
 }
