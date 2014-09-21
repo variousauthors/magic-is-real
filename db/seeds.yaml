@@ -1,22 +1,97 @@
-- name: "Room 1"
+---
+- name: Start
   stimuli_attributes:
-    - content: "A double rainbow hangs all the way across the sky."
-      sense: "sight"
-      links:
-        - key: "rainbow"
-          passage: "Room 1"
-        - key: "sky"
-          passage: "Room 2"
-    - content: "An alto sax and an electric guitar sing as one."
-      sense: "sound"
-    - content: "Yaml is an excellent format for expressing and transmitting data."
-      sense: "magic"
-- name: "Room 2"
+  - sense: sight
+    content: Morning sky, fading moon still full.
+  - sense: sight
+    content: Sparse threads of white cloud.
+  - sense: sight
+    content: Mingi Taw, looming high above.
+  - sense: sight
+    content: Grey rocks and pale moss on old, rich trees.
+  - sense: sight
+    content: The road [[home|ONE]], and the road [[ahead|THREE]].
+  - sense: touch
+    content: Warm dirt baking in the sun.
+  - sense: touch
+    content: Bare feet on rough pebbles.
+  - sense: touch
+    content: Yesterday's dew soaked clothes.
+  - sense: touch
+    content: Blades of grass.
+  - sense: touch
+    content: Tips of rough, chewed fingers.
+  - sense: touch
+    content: Cold wind and warm speckled shadows.
+  - sense: sound
+    content: The wing-beats of hunting birds.
+  - sense: sound
+    content: Morning's chorus leaks from the trees.
+  - sense: sound
+    content: A runny nosed child, breathing heavily.
+  - sense: smell
+    content: Maintain air and old stone.
+  - sense: taste
+    content: Dry saliva and morning breath.
+  - sense: magic
+    content: Damn your eyes.
+  - sense: magic
+    content: Wow, I'd better get writing.
+- name: THREE
   stimuli_attributes:
-    - content: "Have you met Bob?"
-      sense: "magic"
-      links:
-        - key: "Bob"
-          passage: "Room 1"
-    - content: "Old friends high-five."
-      sense: "sound"
+  - sense: sight
+    content: The peak, the immortal mountain, bobbing in the distance.
+  - sense: sight
+    content: Ridges of white enshrine the valley.
+  - sense: sight
+    content: Patches of beige rock become more common.
+  - sense: sight
+    content: Ahead are the baked ruins of a home or store house.
+  - sense: touch
+    content: Steps alternate between soft earth and irregular rock.
+  - sense: touch
+    content: Blisters rubbing in worn boots.
+  - sense: sound
+    content: Clack, clacking of tumbling rocks.
+  - sense: sound
+    content: Clamour of birds taking wing.
+  - sense: sound
+    content: Rustling, movement in the bushes
+  - sense: smell
+    content: White flowers openning.
+  - sense: taste
+    content: Three day old buuz, dry and sour.
+- name: ONE
+  stimuli_attributes:
+  - sense: sight
+    content: Bright green sloping valley slides down the mountain.
+  - sense: sight
+    content: Are those goats down there?
+  - sense: sight
+    content: Home is so impossibly far away, invisible.
+  - sense: sight
+    content: Remember lines of red against the darkness of space.
+  - sense: touch
+    content: Standing on a steep slope, facing down.
+  - sense: touch
+    content: A child holds his arms tight.
+  - sense: touch
+    content: Remember the weight of an old ivory pawn.
+  - sense: sound
+    content: Birds hold their breath, waiting for the arm.
+  - sense: sound
+    content: Remember the voice saying, "it is not his fault, child".
+  - sense: smell
+    content: Drying grass.
+  - sense: smell
+    content: An adult's unwashed body.
+  - sense: taste
+    content: Salt.
+  - sense: magic
+    content: No one comes here.
+  - sense: magic
+    content: No one climbs this mountain.
+  - sense: magic
+    content: Only them; only the fade.
+  - sense: magic
+    content: Turn around now, climb back to [[Mingi Taw|Start]].
